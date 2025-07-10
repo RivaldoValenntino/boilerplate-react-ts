@@ -9,20 +9,39 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ProfilRouteImport } from './routes/profil'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as LabRouteImport } from './routes/lab'
 import { Route as InputMeterRouteImport } from './routes/input-meter'
+import { Route as GrafikRouteImport } from './routes/grafik'
 import { Route as FormStandRouteImport } from './routes/form-stand'
 import { Route as FormMeterRouteImport } from './routes/form-meter'
+import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as IndexRouteImport } from './routes/index'
 
+const ProfilRoute = ProfilRouteImport.update({
+  id: '/profil',
+  path: '/profil',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LabRoute = LabRouteImport.update({
+  id: '/lab',
+  path: '/lab',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InputMeterRoute = InputMeterRouteImport.update({
   id: '/input-meter',
   path: '/input-meter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GrafikRoute = GrafikRouteImport.update({
+  id: '/grafik',
+  path: '/grafik',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FormStandRoute = FormStandRouteImport.update({
@@ -35,6 +54,11 @@ const FormMeterRoute = FormMeterRouteImport.update({
   path: '/form-meter',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -43,50 +67,95 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
   '/form-meter': typeof FormMeterRoute
   '/form-stand': typeof FormStandRoute
+  '/grafik': typeof GrafikRoute
   '/input-meter': typeof InputMeterRoute
+  '/lab': typeof LabRoute
   '/login': typeof LoginRoute
+  '/profil': typeof ProfilRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
   '/form-meter': typeof FormMeterRoute
   '/form-stand': typeof FormStandRoute
+  '/grafik': typeof GrafikRoute
   '/input-meter': typeof InputMeterRoute
+  '/lab': typeof LabRoute
   '/login': typeof LoginRoute
+  '/profil': typeof ProfilRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/dashboard': typeof DashboardRoute
   '/form-meter': typeof FormMeterRoute
   '/form-stand': typeof FormStandRoute
+  '/grafik': typeof GrafikRoute
   '/input-meter': typeof InputMeterRoute
+  '/lab': typeof LabRoute
   '/login': typeof LoginRoute
+  '/profil': typeof ProfilRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/form-meter' | '/form-stand' | '/input-meter' | '/login'
+  fullPaths:
+    | '/'
+    | '/dashboard'
+    | '/form-meter'
+    | '/form-stand'
+    | '/grafik'
+    | '/input-meter'
+    | '/lab'
+    | '/login'
+    | '/profil'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/form-meter' | '/form-stand' | '/input-meter' | '/login'
+  to:
+    | '/'
+    | '/dashboard'
+    | '/form-meter'
+    | '/form-stand'
+    | '/grafik'
+    | '/input-meter'
+    | '/lab'
+    | '/login'
+    | '/profil'
   id:
     | '__root__'
     | '/'
+    | '/dashboard'
     | '/form-meter'
     | '/form-stand'
+    | '/grafik'
     | '/input-meter'
+    | '/lab'
     | '/login'
+    | '/profil'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DashboardRoute: typeof DashboardRoute
   FormMeterRoute: typeof FormMeterRoute
   FormStandRoute: typeof FormStandRoute
+  GrafikRoute: typeof GrafikRoute
   InputMeterRoute: typeof InputMeterRoute
+  LabRoute: typeof LabRoute
   LoginRoute: typeof LoginRoute
+  ProfilRoute: typeof ProfilRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/profil': {
+      id: '/profil'
+      path: '/profil'
+      fullPath: '/profil'
+      preLoaderRoute: typeof ProfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/login': {
       id: '/login'
       path: '/login'
@@ -94,11 +163,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lab': {
+      id: '/lab'
+      path: '/lab'
+      fullPath: '/lab'
+      preLoaderRoute: typeof LabRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/input-meter': {
       id: '/input-meter'
       path: '/input-meter'
       fullPath: '/input-meter'
       preLoaderRoute: typeof InputMeterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/grafik': {
+      id: '/grafik'
+      path: '/grafik'
+      fullPath: '/grafik'
+      preLoaderRoute: typeof GrafikRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/form-stand': {
@@ -115,6 +198,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FormMeterRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -127,10 +217,14 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DashboardRoute: DashboardRoute,
   FormMeterRoute: FormMeterRoute,
   FormStandRoute: FormStandRoute,
+  GrafikRoute: GrafikRoute,
   InputMeterRoute: InputMeterRoute,
+  LabRoute: LabRoute,
   LoginRoute: LoginRoute,
+  ProfilRoute: ProfilRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

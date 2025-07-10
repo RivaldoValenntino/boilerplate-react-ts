@@ -1,10 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import Profile from "../components/ui/profile";
-import Avatar from "../assets/ic_akun_avatar.svg";
 import AuthLayout from "../layouts/auth-layout";
 import MeterProduksiCard from "../components/MeterProduksi/meter-produksi-card";
-import NavigationBar from "../components/navigation-bar";
-import ShiftInfo from "../components/shift-info";
 import ShiftPicker from "../components/shift-picker";
 export const Route = createFileRoute("/")({
   component: IndexComponent,

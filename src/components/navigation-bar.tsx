@@ -9,8 +9,8 @@ export default function NavigationBar() {
   const currentPath = state.location.pathname;
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t shadow-md">
-      <div className="flex justify-between px-6 py-2">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t shadow-md w-full max-w-3xl mx-auto">
+      <div className="flex justify-between px-8 py-2">
         <Link
           to="/dashboard"
           className={`flex flex-col items-center text-xs ${

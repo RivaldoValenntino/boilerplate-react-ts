@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import LoginIc from "../assets/login_ic.svg";
 import { useState } from "react";
 
@@ -7,7 +7,6 @@ export const Route = createFileRoute("/login")({
 });
 
 function LoginComponent() {
-  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
@@ -15,10 +14,10 @@ function LoginComponent() {
   const submitForm = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      alert("Login sukses!");
-    }, 1500);
+    // setTimeout(() => {
+    //   setLoading(false);
+    //   alert("Login sukses!");
+    // }, 1500);
   };
 
   return (
