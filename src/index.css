@@ -1,41 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+::-webkit-scrollbar {
+  display: none;
+}
+body {
+  @apply bg-whiteCust font-poppins;
+}
 #index-body {
-  @apply relative h-screen overflow-hidden;
+  @apply relative mx-auto overflow-x-hidden;
   background: linear-gradient(
     to bottom,
-    rgba(48, 96, 255, 1) 30%,
-    rgba(48, 96, 255, 0.1) 40%,
-    rgba(255, 255, 255, 1) 60%
+    rgba(48, 96, 255, 1) 20%,
+    rgba(247, 246, 254, 1) 40%
   );
+  z-index: 0;
 }
 
-/* Circle di pojok kanan atas */
 .circle-decoration-right {
   @apply absolute rounded-full;
-  top: -64px;
-  right: -64px;
-  width: 200px;
-  height: 200px;
-  background-color: rgba(31, 80, 245, 0.6);
+  top: -10%;
+  right: -13%;
+  width: 150px;
+  height: 150px;
+  background-color: rgba(31, 80, 245, 1);
   z-index: 0;
-  filter: blur(1px); /* opsional: buat tambah halus */
 }
 
 .circle-decoration-left {
   @apply absolute rounded-full;
-  top: 15%;
+  top: 35%;
   left: -92px;
-  width: 200px;
-  /* background-color: rgba(31, 80, 245, 0.6); */
-  height: 200px;
+  width: 220px;
+  height: 220px;
   background: linear-gradient(
     to bottom,
-    rgba(31, 80, 245, 0.6) 10%,
-    rgba(48, 96, 255, 0.1) 60%,
-    rgba(255, 255, 255, 1) 100%
+    rgba(45, 95, 254, 0.3) 35%,
+    rgba(247, 246, 254, 1) 60%
   );
-  transform: translateY(-50%);
-  filter: blur(1px);
+  transform: translateY(-30%);
+  z-index: 0;
+}
+
+#index-body > .content-layer {
+  position: relative;
+  z-index: 10;
 }
