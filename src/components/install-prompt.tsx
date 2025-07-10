@@ -10,8 +10,15 @@ const InstallPrompt: React.FC = () => {
     useState<BeforeInstallPromptEvent | null>(null);
   const [showAlert, setShowAlert] = useState(false);
   const [isIOS, setIsIOS] = useState(false);
+  const isInStandaloneMode = () =>
+    window.matchMedia("(display-mode: standalone)").matches ||
+    (window.navigator as any).standalone === true; // untuk iOS Safari
 
   useEffect(() => {
+    if (isInStandaloneMode()) {
+      return;
+    }
+
     const isAppleDevice = /iPad|iPhone|iPod/.test(navigator.userAgent);
     setIsIOS(isAppleDevice);
 
