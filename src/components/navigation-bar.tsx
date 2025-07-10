@@ -9,7 +9,7 @@ export default function NavigationBar() {
   const currentPath = state.location.pathname;
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t shadow-md w-full max-w-3xl mx-auto">
+    <nav className="fixed bottom-0 left-0 right-0 z-50 w-full max-w-3xl mx-auto bg-white border-t shadow-md">
       <div className="flex justify-between px-8 py-2">
         <Link
           to="/dashboard"
@@ -27,7 +27,7 @@ export default function NavigationBar() {
             currentPath === "/lab" ? "text-blue-600" : "text-gray-500"
           }`}
         >
-          <img src={IcLabBeaker} alt="Lab" className="w-6 h-6 mb-1" />
+          <img src={IcLabBeaker} alt="Lab" className="w-6 h-6 mt-1" />
           Lab
         </Link>
 
