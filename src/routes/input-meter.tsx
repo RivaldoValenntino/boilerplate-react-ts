@@ -4,6 +4,7 @@ import Kubikasi from "../components/ui/kubikasi";
 import { useState } from "react";
 import { Camera, CameraResultType, CameraSource } from "@capacitor/camera";
 import AuthLayout from "../layouts/auth-layout";
+import { CameraIcon } from "@heroicons/react/24/outline";
 export const Route = createFileRoute("/input-meter")({
   component: RouteComponent,
 });
@@ -40,9 +41,10 @@ function RouteComponent() {
             <button
               type="button"
               onClick={handleTakePhoto}
-              className="flex items-center justify-center w-full py-2 space-x-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-lg"
+              className="flex items-center justify-center w-full py-2 space-x-2 text-sm font-medium text-blue-600 bg-blue-100 rounded-lg text-center"
             >
-              <span>Foto Stand</span>
+              <CameraIcon className="w-5 h-5 mb-0.5" />
+              <span className="text-center">Foto Stand</span>
             </button>
 
             {photoUrl && (
@@ -64,9 +66,8 @@ function RouteComponent() {
                 Stand Awal
               </label>
               <input
-                type="text"
-                value="13.485"
-                readOnly
+                type="number"
+                placeholder="Input Stand Awal Meter"
                 className="w-full px-3 py-2 text-sm text-gray-400 bg-gray-100 border border-gray-300 rounded-lg outline-none focus:ring-1 focus:ring-primary"
               />
             </div>
@@ -79,7 +80,7 @@ function RouteComponent() {
                 type="number"
                 value={standAkhir}
                 onChange={(e) => setStandAkhir(e.target.value)}
-                placeholder="Input Satnd Akhir Meter"
+                placeholder="Input Stand Akhir Meter"
                 className="w-full px-3 py-2 text-sm placeholder-gray-400 bg-gray-100 border border-gray-300 rounded-lg outline-none focus:ring-1 focus:ring-primary"
               />
             </div>

@@ -17,7 +17,7 @@ const InstallPrompt: React.FC = () => {
 
     const handleBeforeInstallPrompt = (event: Event) => {
       const beforeInstallEvent = event as BeforeInstallPromptEvent;
-      event.preventDefault();
+      beforeInstallEvent.preventDefault();
       setDeferredPrompt(beforeInstallEvent);
       setShowAlert(true);
     };
@@ -49,6 +49,8 @@ const InstallPrompt: React.FC = () => {
   const handleClose = () => {
     setShowAlert(false);
   };
+
+  if (!showAlert) return null;
 
   return (
     <>

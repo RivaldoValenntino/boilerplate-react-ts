@@ -20,7 +20,7 @@ const TimeInfo: React.FC<TimeInfoProps> = ({
     >
       <div className="flex items-center justify-between gap-2">
         <div className="flex items-center justify-center gap-2">
-          <img src={IcTimer} alt="Timer Icon" className="w-20 h-20" />
+          <img src={IcTimer} alt="Timer Icon" className="w-14 h-14" />
           <span className="font-bold text-gray-800  text-md md:text-base">
             {label}
           </span>

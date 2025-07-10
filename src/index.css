@@ -55,3 +55,11 @@ body {
   -moz-box-shadow: 8px 12px 8px 2px rgba(232, 232, 232, 0.5);
   box-shadow: 8px 12px 8px 2px rgba(232, 232, 232, 0.5);
 }
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
