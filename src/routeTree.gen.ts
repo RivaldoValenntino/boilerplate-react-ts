@@ -10,11 +10,29 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as InputMeterRouteImport } from './routes/input-meter'
+import { Route as FormStandRouteImport } from './routes/form-stand'
+import { Route as FormMeterRouteImport } from './routes/form-meter'
 import { Route as IndexRouteImport } from './routes/index'
 
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InputMeterRoute = InputMeterRouteImport.update({
+  id: '/input-meter',
+  path: '/input-meter',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FormStandRoute = FormStandRouteImport.update({
+  id: '/form-stand',
+  path: '/form-stand',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FormMeterRoute = FormMeterRouteImport.update({
+  id: '/form-meter',
+  path: '/form-meter',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -25,27 +43,45 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/form-meter': typeof FormMeterRoute
+  '/form-stand': typeof FormStandRoute
+  '/input-meter': typeof InputMeterRoute
   '/login': typeof LoginRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/form-meter': typeof FormMeterRoute
+  '/form-stand': typeof FormStandRoute
+  '/input-meter': typeof InputMeterRoute
   '/login': typeof LoginRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/form-meter': typeof FormMeterRoute
+  '/form-stand': typeof FormStandRoute
+  '/input-meter': typeof InputMeterRoute
   '/login': typeof LoginRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login'
+  fullPaths: '/' | '/form-meter' | '/form-stand' | '/input-meter' | '/login'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login'
-  id: '__root__' | '/' | '/login'
+  to: '/' | '/form-meter' | '/form-stand' | '/input-meter' | '/login'
+  id:
+    | '__root__'
+    | '/'
+    | '/form-meter'
+    | '/form-stand'
+    | '/input-meter'
+    | '/login'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FormMeterRoute: typeof FormMeterRoute
+  FormStandRoute: typeof FormStandRoute
+  InputMeterRoute: typeof InputMeterRoute
   LoginRoute: typeof LoginRoute
 }
 
@@ -56,6 +92,27 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/input-meter': {
+      id: '/input-meter'
+      path: '/input-meter'
+      fullPath: '/input-meter'
+      preLoaderRoute: typeof InputMeterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/form-stand': {
+      id: '/form-stand'
+      path: '/form-stand'
+      fullPath: '/form-stand'
+      preLoaderRoute: typeof FormStandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/form-meter': {
+      id: '/form-meter'
+      path: '/form-meter'
+      fullPath: '/form-meter'
+      preLoaderRoute: typeof FormMeterRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -70,6 +127,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FormMeterRoute: FormMeterRoute,
+  FormStandRoute: FormStandRoute,
+  InputMeterRoute: InputMeterRoute,
   LoginRoute: LoginRoute,
 }
 export const routeTree = rootRouteImport

@@ -17,7 +17,7 @@ const StandMeterInfo = ({ awal, akhir }: Props) => {
           <p className="text-xs text-white bg-[#2563eb] px-2 py-1 rounded-md w-fit font-medium">
             Update Stand Meter Awal :
           </p>
-          <p className="mt-1 text-lg font-semibold text-gray-500">
+          <p className="mt-1 text-xl font-semibold text-gray-500">
             {awal.toLocaleString()}
           </p>
         </div>
@@ -26,7 +26,7 @@ const StandMeterInfo = ({ awal, akhir }: Props) => {
           <p className="text-xs text-white bg-[#f97316] px-2 py-1 rounded-md w-fit font-medium">
             Update Stand Meter Akhir :
           </p>
-          <p className="mt-1 text-lg font-bold text-black">
+          <p className="mt-1 text-xl font-bold text-black">
             {akhir.toLocaleString()}
           </p>
         </div>

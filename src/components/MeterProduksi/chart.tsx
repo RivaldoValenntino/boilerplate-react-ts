@@ -41,11 +41,10 @@ const Chart: React.FC<ChartProps> = ({ data, lokasi, produksiInfo }) => {
             <XAxis
               dataKey="hour"
               interval={0}
-              angle={-35}
               textAnchor="middle"
-              height={40}
-              padding={{ left: 10, right: 10 }}
-              tick={{ fontSize: 10, dy: 10 }}
+              height={30}
+              angle={-35}
+              tick={{ fontSize: 10 }}
             />
 
             <YAxis tick={{ fontSize: 12 }} />
@@ -60,8 +59,8 @@ const Chart: React.FC<ChartProps> = ({ data, lokasi, produksiInfo }) => {
                     entry.hour === "11:00"
                       ? "#fb923c" // orange-400
                       : entry.value === 0
-                        ? "#e5e7eb" // gray-200
-                        : "#2563eb" // blue-600
+                      ? "#e5e7eb" // gray-200
+                      : "#2563eb" // blue-600
                   }
                 />
               ))}

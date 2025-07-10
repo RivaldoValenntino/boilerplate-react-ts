@@ -4,7 +4,10 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 import "./index.css";
 import { router } from "./router";
+import { defineCustomElements } from "@ionic/pwa-elements/loader";
+import InstallPrompt from "./components/install-prompt";
 
+defineCustomElements(window);
 export const queryClient = new QueryClient();
 
 function App() {
@@ -16,6 +19,7 @@ if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
   root.render(
     <QueryClientProvider client={queryClient}>
+      <InstallPrompt />
       <App />
     </QueryClientProvider>
   );

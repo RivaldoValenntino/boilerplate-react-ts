@@ -5,6 +5,7 @@ import AuthLayout from "../layouts/auth-layout";
 import MeterProduksiCard from "../components/MeterProduksi/meter-produksi-card";
 import NavigationBar from "../components/navigation-bar";
 import ShiftInfo from "../components/shift-info";
+import ShiftPicker from "../components/shift-picker";
 export const Route = createFileRoute("/")({
   component: IndexComponent,
 });
@@ -12,17 +13,6 @@ export const Route = createFileRoute("/")({
 function IndexComponent() {
   return (
     <AuthLayout>
-      <Profile
-        avatar={Avatar}
-        cabang="Cabang Utama"
-        nama="Nama Pengguna"
-        className="self-start"
-      />
-      <ShiftInfo
-        shift="Shift 1"
-        tanggal="02 Juli 2023, 11:45"
-        jam="08:00 - 17:00"
-      />
       <MeterProduksiCard
         title="Meter Produksi"
         lokasi="PEMDA"
@@ -33,7 +23,9 @@ function IndexComponent() {
         nextInputTime="02 Juli 2025, 11:45"
         countdown="00:15"
         produksiInfo="PROD 2850 M3 per hari"
+        className="mt-2"
       />
+      <ShiftPicker />
     </AuthLayout>
   );
 }

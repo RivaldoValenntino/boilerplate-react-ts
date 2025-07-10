@@ -27,11 +27,10 @@ const ShiftInfo: React.FC<ShiftInfoProps> = ({ shift, tanggal, jam }) => {
           <span className="text-sm">
             Terakhir input: <span className="font-bold">{tanggal}</span>
           </span>
+          <div className="px-2 py-1 text-sm font-bold text-white bg-orangeCust rounded-full text-center w-fit">
+            {jam}
+          </div>
         </div>
-      </div>
-
-      <div className="px-2 py-1 text-sm font-bold text-white bg-orange-400 rounded-full text-center">
-        {jam}
       </div>
     </div>
   );
