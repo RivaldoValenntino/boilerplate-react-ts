@@ -8,7 +8,7 @@ type AuthLayoutProps = {
 const AuthLayout: React.FC<AuthLayoutProps> = ({ children }) => {
   return (
     <div className="flex items-center justify-center">
-      <div id="index-body" className="w-full max-w-3xl">
+      <div id="index-body" className="w-full max-w-3xl h-dvh">
         <div className="circle-decoration-right"></div>
         <div className="circle-decoration-left"></div>
 

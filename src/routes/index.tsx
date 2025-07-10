@@ -16,7 +16,7 @@ function IndexComponent() {
         avatar={Avatar}
         cabang="Cabang Utama"
         nama="Nama Pengguna"
-        className="self-start mb-2"
+        className="self-start"
       />
       <ShiftInfo
         shift="Shift 1"

@@ -41,10 +41,11 @@ const Chart: React.FC<ChartProps> = ({ data, lokasi, produksiInfo }) => {
             <XAxis
               dataKey="hour"
               interval={0}
+              angle={-35}
               textAnchor="middle"
-              height={30}
+              height={40}
               padding={{ left: 10, right: 10 }}
-              tick={{ fontSize: 10 }}
+              tick={{ fontSize: 10, dy: 10 }}
             />
 
             <YAxis tick={{ fontSize: 12 }} />

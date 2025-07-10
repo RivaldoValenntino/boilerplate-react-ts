@@ -3,7 +3,8 @@ import IcPipe from "../../assets/pipe.svg";
 const TotalKubicasi = ({ value }: { value: number }) => {
   return (
     <div className="w-full h-full overflow-hidden shadow-md rounded-xl">
-      <div className="bg-[#2563eb] text-white flex justify-between items-start p-4 relative">
+      {/* Header */}
+      <div className="bg-[#2563eb] text-white flex justify-between items-start p-4 relative rounded-t-xl">
         <p className="font-medium leading-4 text-md">
           Total
           <br />
@@ -12,15 +13,18 @@ const TotalKubicasi = ({ value }: { value: number }) => {
         <img
           src={IcPipe}
           alt="Pipe Icon"
-          className="absolute bottom-0 right-0 w-12 h-12"
+          className="absolute bottom-0 right-0 w-12 h-12 opacity-50"
         />
       </div>
 
-      <div className="bg-[#CAE2F9] px-4 py-6 rounded-b-xl flex justify-center items-center">
-        <p className="text-3xl font-bold leading-none">
-          {value.toLocaleString()}{" "}
-        </p>
-        <span className="mx-1 text-sm font-medium text-center">m³</span>
+      {/* Value Section */}
+      <div className="bg-[#CAE2F9] p-6 flex flex-col justify-center items-center text-center rounded-b-xl">
+        <div className="flex items-baseline space-x-1">
+          <p className="text-3xl sm:text-4xl font-bold">
+            {value.toLocaleString()}
+          </p>
+          <span className="text-sm sm:text-base font-medium">m³</span>
+        </div>
       </div>
     </div>
   );

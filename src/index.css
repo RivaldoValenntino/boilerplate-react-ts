@@ -22,18 +22,19 @@ body {
   @apply absolute rounded-full;
   top: -10%;
   right: -13%;
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   background-color: rgba(31, 80, 245, 1);
   z-index: 0;
 }
 
 .circle-decoration-left {
+  display: none;
   @apply absolute rounded-full;
-  top: 35%;
+  top: 34%;
   left: -92px;
-  width: 220px;
-  height: 220px;
+  width: 270px;
+  height: 270px;
   background: linear-gradient(
     to bottom,
     rgba(45, 95, 254, 0.3) 35%,

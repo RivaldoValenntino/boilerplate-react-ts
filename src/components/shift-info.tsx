@@ -11,8 +11,8 @@ type ShiftInfoProps = {
 
 const ShiftInfo: React.FC<ShiftInfoProps> = ({ shift, tanggal, jam }) => {
   return (
-    <div className="flex items-center justify-between w-full px-4 py-2 font-medium text-white text-nowrap">
-      <div className="flex items-center space-x-4">
+    <div className="flex flex-col md:flex-row md:items-center md:justify-between w-full px-4 py-2 font-medium text-white gap-2">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:space-x-4 space-y-2 sm:space-y-0">
         <div className="flex items-center space-x-2">
           <BriefcaseIcon className="w-5 h-5" />
           <span className="text-sm">
@@ -20,7 +20,7 @@ const ShiftInfo: React.FC<ShiftInfoProps> = ({ shift, tanggal, jam }) => {
           </span>
         </div>
 
-        <span className="text-white">|</span>
+        <span className="hidden sm:block text-white">|</span>
 
         <div className="flex items-center space-x-2">
           <ClipboardDocumentListIcon className="w-5 h-5" />
@@ -30,7 +30,7 @@ const ShiftInfo: React.FC<ShiftInfoProps> = ({ shift, tanggal, jam }) => {
         </div>
       </div>
 
-      <div className="px-2 py-1 mx-4 text-sm font-bold text-white bg-orange-400 rounded-full ">
+      <div className="px-2 py-1 text-sm font-bold text-white bg-orange-400 rounded-full text-center">
         {jam}
       </div>
     </div>
