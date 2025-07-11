@@ -25,7 +25,7 @@ const ShiftPicker: React.FC = () => {
 
   return (
     <div className="flex items-center justify-center mt-4">
-      <div className=" rounded-xl  w-full max-w-md p-4">
+      <div className=" rounded-xl w-full p-4">
         <div className="flex justify-between items-center mb-3">
           <h2 className="font-semibold text-lg">Shift Pagi</h2>
           {/* <span className="material-icons text-gray-400">chevron_right</span> */}
