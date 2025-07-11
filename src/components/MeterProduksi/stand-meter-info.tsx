@@ -7,8 +7,8 @@ type Props = {
 
 const StandMeterInfo = ({ awal, akhir }: Props) => {
   return (
-    <div className="bg-[#CEDAFF] rounded-xl px-4 py-3 flex items-center space-x-4 w-full h-full shadow-md">
-      <div className="flex-shrink-0">
+    <div className="bg-[#CEDAFF] rounded-xl px-4 py-3 flex items-center space-x-4 w-full h-full shadow-md gap-4">
+      <div className="flex-shrink-0 ml-4">
         <img src={IcMeter} alt="Meter Icon" className="w-18 h-18" />
       </div>
 
