@@ -27,7 +27,7 @@ function RouteComponent() {
   };
   return (
     <AuthLayout>
-      <div className="w-full p-4 overflow-hidden shadow-xs bg-whiteCust rounded-xl">
+      <div className="w-full p-4 overflow-hidden shadow-none bg-whiteCust rounded-xl">
         <TimeInfo
           nextTime="12:00"
           countdown="00:59"

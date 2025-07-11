@@ -32,7 +32,7 @@ const MeterProduksiCard: React.FC<MeterProduksiProps> = ({
 }) => {
   return (
     <div
-      className={`bg-whiteCust rounded-xl shadow-md overflow-hidden p-4 w-full ${className}`}
+      className={`bg-whiteCust rounded-xl shadow-none overflow-hidden p-4 w-full ${className}`}
     >
       <Header title={title} />
       <Chart data={chartData} lokasi={lokasi} produksiInfo={produksiInfo} />

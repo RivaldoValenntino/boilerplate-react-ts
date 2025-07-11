@@ -47,7 +47,7 @@ export const Route = createFileRoute("/form-meter")({
 function RouteComponent() {
   return (
     <AuthLayout>
-      <div className="w-full p-4 overflow-hidden shadow-md bg-whiteCust rounded-xl">
+      <div className="w-full p-4 overflow-hidden shadow-none bg-whiteCust rounded-xl">
         {/* Header Waktu */}
         <TimeInfo
           nextTime="12:00"
