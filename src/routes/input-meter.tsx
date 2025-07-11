@@ -51,7 +51,7 @@ function RouteComponent() {
               <img
                 src={photoUrl}
                 alt="Stand Meter"
-                className="object-cover w-full rounded-md h-36"
+                className="object-cover w-full rounded-md h-96"
               />
             )}
 
