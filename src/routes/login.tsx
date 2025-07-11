@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import LoginIc from "../assets/login_ic.svg";
 import { useState } from "react";
+import FloatingInput from "../components/ui/floating-input";
 
 export const Route = createFileRoute("/login")({
   component: LoginComponent,
@@ -14,10 +15,7 @@ function LoginComponent() {
   const submitForm = (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // setTimeout(() => {
-    //   setLoading(false);
-    //   alert("Login sukses!");
-    // }, 1500);
+    // setTimeout(() => setLoading(false), 1500);
   };
 
   return (
@@ -28,7 +26,6 @@ function LoginComponent() {
           <p>Masuk Akun</p>
         </div>
 
-        {/* Login Illustration */}
         <div className="flex items-center justify-center mb-6">
           <img src={LoginIc} alt="Login" width={300} height={300} />
         </div>
@@ -39,42 +36,27 @@ function LoginComponent() {
         <p className="w-3/4 px-2 mb-4 mx-auto text-sm text-center text-gray-600">
           Masukan informasi pengguna Anda di bawah ini untuk melanjutkan
         </p>
-        {/* Card Container */}
+
         <div className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6">
           <form onSubmit={submitForm} className="space-y-4">
-            {/* Username Input */}
-            <div className="relative">
-              <label htmlFor="username" className=" text-sm text-gray-500 m-1">
-                Username
-              </label>
-              <input
-                id="username"
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-                className="peer w-full p-3 text-sm bg-transparent border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
-                placeholder=" "
-              />
-            </div>
+            <FloatingInput
+              id="username"
+              label="Username"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
 
-            {/* Password Input */}
-            <div className="relative">
-              <label htmlFor="password" className="text-sm text-gray-500 m-1">
-                Password
-              </label>
-              <input
-                id="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                className="peer w-full p-3 text-sm bg-transparent border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
-                placeholder=" "
-              />
-            </div>
+            <FloatingInput
+              id="password"
+              label="Password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
 
-            {/* Submit Button */}
             <button
               type="submit"
               disabled={loading}
