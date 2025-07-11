@@ -1,9 +1,14 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 import AuthLayout from "../layouts/auth-layout";
 import MeterProduksiCard from "../components/MeterProduksi/meter-produksi-card";
 import ShiftPicker from "../components/shift-picker";
 export const Route = createFileRoute("/")({
   component: IndexComponent,
+  loader: async () => {
+    throw redirect({
+      to: "/login",
+    });
+  },
 });
 
 function IndexComponent() {
