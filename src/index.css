@@ -8,8 +8,10 @@
 *:focus {
   outline: none;
 }
+
 body {
   @apply bg-whiteCust font-poppins;
+  overscroll-behavior-y: contain;
 }
 #index-body {
   @apply relative mx-auto overflow-x-hidden;
