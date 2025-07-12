@@ -16,7 +16,7 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       manifest: {
-        name: "Sistem Informasi Produksi",
+        name: "SIMPRO",
         short_name: "SIMPRO",
         description: "Aplikasi Sistem Informasi Produksi Kahuripan",
         theme_color: "#ffffff",
