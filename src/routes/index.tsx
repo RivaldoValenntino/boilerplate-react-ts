@@ -1,6 +1,6 @@
 import { createFileRoute, redirect } from "@tanstack/react-router";
 import AuthLayout from "../layouts/auth-layout";
-import MeterProduksiCard from "../components/MeterProduksi/meter-produksi-card";
+import MeterProduksiCard from "../components/MeterProduksi/dashboard-info-card";
 import ShiftPicker from "../components/shift-picker";
 export const Route = createFileRoute("/")({
   component: IndexComponent,

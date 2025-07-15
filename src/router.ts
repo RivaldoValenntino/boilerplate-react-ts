@@ -7,7 +7,7 @@ export const router = createRouter({
   routeTree,
   defaultPreload: "intent",
   defaultPreloadStaleTime: 0,
-  context: { queryClient: undefined! }, 
+  context: { queryClient: undefined!, auth: undefined! },
 });
 
 declare module "@tanstack/react-router" {

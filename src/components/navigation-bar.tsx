@@ -26,19 +26,19 @@ export default function NavigationBar() {
           Dashboard
         </Link>
 
-        <Link to="/form-stand" className={getLinkClass("/form-stand")}>
-          <IcLabBeaker className={getIconClass("/form-stand")} />
+        <Link to="/lab" className={getLinkClass("/lab")}>
+          <IcLabBeaker className={getIconClass("/lab")} />
           Lab
         </Link>
 
-        <Link to="/form-meter" className={getLinkClass("/form-meter")}>
+        <Link to="/grafik" className={getLinkClass("/grafik")}>
           {/* <IcGraph className={getIconClass("/grafik")} /> */}
           <IcGraph className={`w-6 h-6 mb-1`} />
           Grafik
         </Link>
 
-        <Link to="/input-meter" className={getLinkClass("/input-meter")}>
-          <IcUser className={getIconClass("/input-meter")} />
+        <Link to="/profil" className={getLinkClass("/profil")}>
+          <IcUser className={getIconClass("/profil")} />
           Profil
         </Link>
       </div>

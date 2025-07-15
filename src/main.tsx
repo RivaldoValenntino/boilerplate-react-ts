@@ -6,12 +6,14 @@ import "./index.css";
 import { router } from "./router";
 import { defineCustomElements } from "@ionic/pwa-elements/loader";
 import InstallPrompt from "./components/install-prompt";
+import { useAuthStore } from "./store/auth";
 
 defineCustomElements(window);
 export const queryClient = new QueryClient();
 
 function App() {
-  return <RouterProvider router={router} context={{ queryClient }} />;
+  const auth = useAuthStore();
+  return <RouterProvider router={router} context={{ queryClient, auth }} />;
 }
 
 const rootElement = document.getElementById("root")!;

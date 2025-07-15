@@ -4,44 +4,43 @@ import Chart from "./chart";
 import StandMeterInfo from "./stand-meter-info";
 import TotalKubicasi from "./total-kubikasi";
 import NextInputInfo from "./next-input-info";
+import DropdownDashboard from "../drodpdown-dashboard";
 
-type MeterProduksiProps = {
-  title: string;
+type DashboardInfoProps = {
   lokasi: string;
   chartData: number[];
-  meterAwal: number;
-  meterAkhir: number;
-  kubikasi: number;
+  nilaiAwal: number;
+  nilaiAkhir: number;
+  nilai: number;
   nextInputTime: string;
   countdown: string;
-  produksiInfo: string;
+  info: string;
   className?: string;
 };
 
-const MeterProduksiCard: React.FC<MeterProduksiProps> = ({
-  title,
+const DashboardInfoCard: React.FC<DashboardInfoProps> = ({
   lokasi,
   chartData,
-  meterAwal,
-  meterAkhir,
-  kubikasi,
+  nilaiAwal,
+  nilaiAkhir,
+  nilai,
   nextInputTime,
   countdown,
-  produksiInfo,
+  info,
   className = "",
 }) => {
   return (
     <div
       className={`bg-whiteCust rounded-xl shadow-none overflow-hidden p-4 w-full ${className}`}
     >
-      <Header title={title} />
-      <Chart data={chartData} lokasi={lokasi} produksiInfo={produksiInfo} />
+      <Header title={<DropdownDashboard />} />
+      <Chart data={chartData} lokasi={lokasi} chartInfo={info} />
       <div className="grid items-stretch grid-cols-12 gap-4 mt-4">
         <div className="col-span-12 xs:col-span-8">
-          <StandMeterInfo awal={meterAwal} akhir={meterAkhir} />
+          <StandMeterInfo awal={nilaiAwal} akhir={nilaiAkhir} />
         </div>
         <div className="col-span-12 xs:col-span-4">
-          <TotalKubicasi value={kubikasi} />
+          <TotalKubicasi value={nilai} />
         </div>
       </div>
 
@@ -50,4 +49,4 @@ const MeterProduksiCard: React.FC<MeterProduksiProps> = ({
   );
 };
 
-export default MeterProduksiCard;
+export default DashboardInfoCard;

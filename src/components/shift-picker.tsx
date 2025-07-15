@@ -4,18 +4,24 @@ const ShiftPicker: React.FC = () => {
   const [selectedTime, setSelectedTime] = useState<string | null>("12:00");
 
   const timeSlots = [
-    { time: "07:00", available: true },
-    { time: "08:00", available: true },
-    { time: "09:00", available: true },
-    { time: "10:00", available: true },
-    { time: "11:00", available: true },
-    { time: "12:00", available: true },
-    { time: "13:00", available: false },
-    { time: "14:00", available: false },
-    { time: "15:00", available: false },
-    { time: "16:00", available: false },
-    { time: "17:00", available: false },
-    { time: "18:00", available: false },
+    { time: "07:00", available: true, val: 7 },
+    { time: "08:00", available: true, val: 8 },
+    { time: "09:00", available: true, val: 9 },
+    { time: "10:00", available: true, val: 10 },
+    { time: "11:00", available: true, val: 11 },
+    { time: "12:00", available: true, val: 12 },
+    { time: "13:00", available: false, val: 13 },
+    { time: "14:00", available: false, val: 14 },
+    { time: "15:00", available: false, val: 15 },
+    { time: "16:00", available: false, val: 16 },
+    { time: "17:00", available: false, val: 17 },
+    { time: "18:00", available: false, val: 18 },
+    // { time: "19:00", available: false, val: 19 },
+    // { time: "20:00", available: false, val: 20 },
+    // { time: "21:00", available: false, val: 21 },
+    // { time: "22:00", available: false, val: 22 },
+    // { time: "23:00", available: false, val: 23 },
+    // { time: "00:00", available: false, val: 24 },
   ];
 
   const handleClick = (time: string, available: boolean) => {

@@ -16,8 +16,9 @@ import { Route as InputMeterRouteImport } from './routes/input-meter'
 import { Route as GrafikRouteImport } from './routes/grafik'
 import { Route as FormStandRouteImport } from './routes/form-stand'
 import { Route as FormMeterRouteImport } from './routes/form-meter'
-import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as _authenticatedRouteImport } from './routes/__authenticated'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as _authenticatedDashboardRouteImport } from './routes/__authenticated/dashboard'
 
 const ProfilRoute = ProfilRouteImport.update({
   id: '/profil',
@@ -54,9 +55,8 @@ const FormMeterRoute = FormMeterRouteImport.update({
   path: '/form-meter',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DashboardRoute = DashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
+const _authenticatedRoute = _authenticatedRouteImport.update({
+  id: '/__authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -64,10 +64,14 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const _authenticatedDashboardRoute = _authenticatedDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => _authenticatedRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/dashboard': typeof DashboardRoute
   '/form-meter': typeof FormMeterRoute
   '/form-stand': typeof FormStandRoute
   '/grafik': typeof GrafikRoute
@@ -75,10 +79,10 @@ export interface FileRoutesByFullPath {
   '/lab': typeof LabRoute
   '/login': typeof LoginRoute
   '/profil': typeof ProfilRoute
+  '/dashboard': typeof _authenticatedDashboardRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/dashboard': typeof DashboardRoute
   '/form-meter': typeof FormMeterRoute
   '/form-stand': typeof FormStandRoute
   '/grafik': typeof GrafikRoute
@@ -86,11 +90,12 @@ export interface FileRoutesByTo {
   '/lab': typeof LabRoute
   '/login': typeof LoginRoute
   '/profil': typeof ProfilRoute
+  '/dashboard': typeof _authenticatedDashboardRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/dashboard': typeof DashboardRoute
+  '/__authenticated': typeof _authenticatedRouteWithChildren
   '/form-meter': typeof FormMeterRoute
   '/form-stand': typeof FormStandRoute
   '/grafik': typeof GrafikRoute
@@ -98,12 +103,12 @@ export interface FileRoutesById {
   '/lab': typeof LabRoute
   '/login': typeof LoginRoute
   '/profil': typeof ProfilRoute
+  '/__authenticated/dashboard': typeof _authenticatedDashboardRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/dashboard'
     | '/form-meter'
     | '/form-stand'
     | '/grafik'
@@ -111,10 +116,10 @@ export interface FileRouteTypes {
     | '/lab'
     | '/login'
     | '/profil'
+    | '/dashboard'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/dashboard'
     | '/form-meter'
     | '/form-stand'
     | '/grafik'
@@ -122,10 +127,11 @@ export interface FileRouteTypes {
     | '/lab'
     | '/login'
     | '/profil'
+    | '/dashboard'
   id:
     | '__root__'
     | '/'
-    | '/dashboard'
+    | '/__authenticated'
     | '/form-meter'
     | '/form-stand'
     | '/grafik'
@@ -133,11 +139,12 @@ export interface FileRouteTypes {
     | '/lab'
     | '/login'
     | '/profil'
+    | '/__authenticated/dashboard'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  DashboardRoute: typeof DashboardRoute
+  _authenticatedRoute: typeof _authenticatedRouteWithChildren
   FormMeterRoute: typeof FormMeterRoute
   FormStandRoute: typeof FormStandRoute
   GrafikRoute: typeof GrafikRoute
@@ -198,11 +205,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FormMeterRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/dashboard': {
-      id: '/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof DashboardRouteImport
+    '/__authenticated': {
+      id: '/__authenticated'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof _authenticatedRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -212,12 +219,31 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/__authenticated/dashboard': {
+      id: '/__authenticated/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof _authenticatedDashboardRouteImport
+      parentRoute: typeof _authenticatedRoute
+    }
   }
 }
 
+interface _authenticatedRouteChildren {
+  _authenticatedDashboardRoute: typeof _authenticatedDashboardRoute
+}
+
+const _authenticatedRouteChildren: _authenticatedRouteChildren = {
+  _authenticatedDashboardRoute: _authenticatedDashboardRoute,
+}
+
+const _authenticatedRouteWithChildren = _authenticatedRoute._addFileChildren(
+  _authenticatedRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  DashboardRoute: DashboardRoute,
+  _authenticatedRoute: _authenticatedRouteWithChildren,
   FormMeterRoute: FormMeterRoute,
   FormStandRoute: FormStandRoute,
   GrafikRoute: GrafikRoute,
